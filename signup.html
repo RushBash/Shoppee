@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Shopee</title>
+ <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+header {
+  background: linear-gradient(to right, #ff6a00, #ee0979);
+  color: white;
+  padding: 0.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ffd700;
+}
+
+.signup-container {
+  max-width: 400px;
+  margin: 60px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.signup-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.form-options {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.form-options a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.form-options a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 10px;
+  min-width: 200px;
+}
+
+.footer-section a {
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.footer-section a:hover {
+  color: #fff;
+}
+
+ </style>
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">Shopee</a></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="all-products.html">All Products</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">🛒 Cart</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <div class="signup-container">
+    <h2>Create Your Shopee Account</h2>
+    <form onsubmit="return registerUser(event)">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" required />
+
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" required />
+
+      <button type="submit">Sign Up</button>
+
+      <div class="form-options">
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section reserved">
+        <p>&copy; 2025 Shopee. All rights reserved.</p>
+      </div>
+      <div class="footer-section menu">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="all-products.html">All Products</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-section social-media">
+        <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function registerUser(event) {
+      event.preventDefault();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return false;
+      }
+
+      alert("Sign-up successful!");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

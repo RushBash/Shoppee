@@ -18,6 +18,7 @@
       <a href="login.html">Login</a>
     </nav>
   </header>
+
   <div class="login-container">
     <h2>Login to Shopee</h2>
     <form onsubmit="return loginUser(event)">
@@ -28,17 +29,22 @@
       <input type="password" id="password" required />
 
       <button type="submit">Login</button>
+
       <div class="form-options">
         <label class="remember-me">
           <input type="checkbox" id="rememberMe" />
-          Remember Me
+          <span>Remember Me</span>
         </label>
         <a href="reset.html" class="forgot-password">Forgot Password?</a>
       </div>
+      
+
+      <div class="signup-link">
+        <p>New to Shopee? <a href="signup.html">Create an account</a></p>
+      </div>
     </form>
-    
-  
   </div>
+
   <footer>
     <div class="footer-content">
       <div class="footer-section reserved">
@@ -60,24 +66,20 @@
     </div>
   </footer>
 
-  <script>  
-  
+  <script>
+    function loginUser(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
-  
-function loginUser(event) {
-    event.preventDefault();
-    alert("Login successful!");
-    window.location.href = "index.html";
-}  
-   
-window.onload = function () {
-  document.querySelector(".forgot-password").addEventListener("click", function () {
-    event.preventDefault();
-  this.classList.add("clicked");
-});
-  }
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return false;
+      }
 
-</script>
- 
+      alert("Login successful!");
+      window.location.href = "index.html";
+    }
+  </script>
 </body>
 </html>
