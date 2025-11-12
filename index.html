@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <title>Shopee</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -30,10 +30,9 @@
       <a href="all-products.html" class="banner-btn">Shop Now</a>
     </div>
   </section>
-
-  <div id="discount-popup" class="popup">
-    <p>🎉 Get 10% off on your first order! Use code: WELCOME10</p>
-    <button onclick="closePopup()">Close</button>
+  <div id="discount-popup">
+    <p>🎉 Get 10% OFF on your first order! Use code: <span class="code">WELCOME10</span></p>
+    <button onclick="closePopup()" aria-label="Close">×</button>
   </div>
   
   
@@ -97,8 +96,8 @@
       <button onclick="addToCart('Wireless Bluetooth')">Add to Cart</button>
       </div>
         <div class="product-card">
-          <img src="./images/product_2.png" alt="Smartphone"/>
-          <h3>Smartphone</h3>
+          <img src="./images/product_2.png" alt="SmartWatch"/>
+          <h3>SmartWatch</h3>
           <p>₹2,999</p>
           <div class="stars">
             <div class="star filled">★</div>
@@ -107,7 +106,7 @@
             <div class="star filled">★</div>
             <div class="star">☆</div>
       </div>
-      <button onclick="addToCart('Smartphone')">Add to Cart</button>
+      <button onclick="addToCart('SmartWatch')">Add to Cart</button>
       </div>
       <div class="product-card">
         <img src="./images/product_3.png" alt="Portable Charger"/>
@@ -276,6 +275,69 @@
         <li>Noise Cancelling Earbuds</li>
       </ul>
     </section>
+    <section id="services">
+      <h2 class="section-heading">Our Services</h2>
+      <div class="info-card-container">
+    
+        <!-- Fast Delivery -->
+        <div class="info-card">
+          <h3>🚀 Fast Delivery</h3>
+          <p>Get your products quickly with same-day or next-day delivery.</p>
+          <a class="learn-more" href="./services/delivery.html">Learn More</a>
+        </div>
+    
+        <!-- Easy Returns -->
+        <div class="info-card">
+          <h3>🔄 Easy Returns</h3>
+          <p>Hassle-free returns and quick refunds for your convenience.</p>
+          <a class="learn-more" href="./services/returns.html">Learn More</a>
+        </div>
+    
+        <!-- Exchange Offers -->
+        <div class="info-card">
+          <h3>♻️ Exchange Offers</h3>
+          <p>Trade in your old gadgets for discounts on new purchases.</p>
+          <a class="learn-more" href="./services/exchange.html">Learn More</a>
+        </div>
+    
+        <!-- EMI Options -->
+        <div class="info-card">
+          <h3>💳 EMI Options</h3>
+          <p>Buy now and pay later with flexible EMI plans at zero interest.</p>
+          <a class="learn-more" href="./services/emi.html">Learn More</a>
+        </div>
+    
+        <!-- Track Order -->
+        <div class="info-card">
+          <h3>📦 Track Order</h3>
+          <p>Check your order status in real-time.</p>
+          <a class="learn-more" href="./services/track.html">Learn More</a>
+        </div>
+    
+        <!-- Privacy Policy -->
+        <div class="info-card">
+          <h3>🔐 Privacy Policy</h3>
+          <p>Your data is safe with us. Read how we protect your privacy.</p>
+          <a class="learn-more" href="./services/privacy.html">Learn More</a>
+        </div>
+    
+        <!-- Gift Vouchers -->
+        <div class="info-card">
+          <h3>🎁 Gift Vouchers</h3>
+          <p>Surprise your loved ones with customizable gift vouchers.</p>
+          <a class="learn-more" href="./services/gift-voucher.html">Learn More</a>
+        </div>
+    
+        <!-- Customer Support -->
+        <div class="info-card">
+          <h3>📞 Customer Support</h3>
+          <p>Need help? Our support team is available 24/7.</p>
+          <a class="learn-more" href="./services/support.html">Learn More</a>
+        </div>
+    
+      </div>
+    </section>
+    
 </main>
  
   <footer>
@@ -325,7 +387,34 @@
     </div>
   </footer>
   
+<!-- Einstein Bot Embedded Messaging -->
+<script type="text/javascript">
+  function initEmbeddedMessaging() {
+      try {
+          // Set language for the chat widget
+          embeddedservice_bootstrap.settings.language = 'en_US'; // Example: 'en' or 'en-US'
 
+          // Initialize Embedded Service
+          embeddedservice_bootstrap.init(
+              '00DNS00000cq9pJ', // Your Salesforce Org ID
+              'Shopee_Assistant', // API Name of your Embedded Service Deployment
+              'https://orgfarm-757b3dca6d-dev-ed.develop.my.site.com/ESWShopeeAssistant1762761528187', // Deployment URL
+              {
+                  scrt2URL: 'https://orgfarm-757b3dca6d-dev-ed.develop.my.salesforce-scrt.com' // Secure URL
+              }
+          );
+      } catch (err) {
+          console.error('Error loading Embedded Messaging: ', err);
+      }
+      window.addEventListener('load', initEmbeddedMessaging);
+
+  }
+</script>
+
+<!-- Load Bootstrap Script for Embedded Service -->
+<script src="//orgfarm-757b3dca6d-dev-ed.develop.my.site.com/ESWShopeeAssistant1762761528187/assets/js/bootstrap.min.js"></script>
+
+  
   <script src="script.js"></script>
 </body>
 </html>
