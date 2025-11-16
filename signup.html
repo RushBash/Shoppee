@@ -205,5 +205,46 @@ footer {
       window.location.href = "index.html";
     }
   </script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const signupButton = document.querySelector("button"); // Adjust if you have multiple buttons
+    signupButton.addEventListener("click", async function(event) {
+        event.preventDefault();
+
+        // Capture form values (make sure your inputs have these name attributes)
+        const fullName = document.querySelector("input[name='fullname']").value;
+        const email = document.querySelector("input[name='email']").value;
+        const password = document.querySelector("input[name='password']").value;
+
+        // Prepare data for Salesforce
+        const customerData = {
+            name: fullName,
+                       phone: "", // Optional if you have phone field
+            userId: email // Using email as unique ID for now
+        };
+
+        try {
+            const response = await fetch("https://YOUR_INSTANCE.salesforce.com/services/apexrest/createCustomer", {
+                method: "POST",
+                headers: {
+                    "Authorization": "3MVG9dAEux2v1sLt5mcpy50Z8XTkrnZ7kVQVFc5gCb4aYeD6c6Rj_xB6lQuqkFdw1sQgakMAzGsZEwFKf7yPl", // Replace with actual token
+                    "instance_url": "https://yourInstance.salesforce.com"
+                body: JSON.stringify(customerData)
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to create customer in Salesforce");
+            }
+
+            const result = await response.text();
+            alert("Signup successful! " + result);
+        } catch (error) {
+            console.error("Error creating customer:", error);
+            alert("Signup failed. Please try again.");
+        }
+    });
+});
+</script>
 </body>
 </html>
+
